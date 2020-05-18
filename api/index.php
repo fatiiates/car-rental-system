@@ -1,0 +1,1 @@
+error sayfası olacak

@@ -1,0 +1,30 @@
+<?php
+
+require_once('header.php');
+?>
+
+<div class="content bg-dark d-flex justify-content-center align-items-center text-center w-100 " style="height: 100%!important">
+  <form class="form-signin justify-content-center">
+    <div class="form-group mb-3">
+      <svg class="bi bi-arrow-bar-right" width="7em" height="7em" viewBox="0 0 16 16" fill="white" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" d="M10.146 4.646a.5.5 0 01.708 0l3 3a.5.5 0 010 .708l-3 3a.5.5 0 01-.708-.708L12.793 8l-2.647-2.646a.5.5 0 010-.708z" clip-rule="evenodd"/>
+        <path fill-rule="evenodd" d="M6 8a.5.5 0 01.5-.5H13a.5.5 0 010 1H6.5A.5.5 0 016 8zm-2.5 6a.5.5 0 01-.5-.5v-11a.5.5 0 011 0v11a.5.5 0 01-.5.5z" clip-rule="evenodd"/>
+      </svg>
+      <h1 class="h3 mb-3 font-weight-normal text-light">fPanel</h1>
+    </div>
+    <div class="form-group mb-3">
+      <label for="inputUserId" class="sr-only">Kullanıcı Adı</label>
+      <input type="user_id" id="inputUserId" class="form-control bg-dark text-light" placeholder="Kullanıcı Adı" required autofocus>
+    </div>
+    <div class="form-group mb-3">
+      <label for="inputPassword" class="sr-only">Şifre</label>
+      <input type="password" id="inputPassword" class="form-control bg-dark text-light" placeholder="Şifre" required>
+    </div>
+    <div class="form-group mb-3 justify-content-center">
+      <button class="btn btn-lg btn-light col-md-8" type="submit">Giriş</button>
+      <p class="mt-5 mb-3 text-muted">© 2019-2020</p>
+    </div>
+  </form>
+</div>
+
+<?php require_once('footer.php'); ?>
