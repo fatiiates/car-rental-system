@@ -10,5 +10,5 @@
     <title>Prusa Oto</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/master3.css">
+    <link rel="stylesheet" href="assets/css/master13.css">
   </head>
