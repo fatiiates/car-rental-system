@@ -1,4 +1,4 @@
-<footer id="footer" class="animated fadeIn shadow-lg text-center custom-purple d-flex float-left col-md-12">
+<footer id="footer" class="animated fadeIn shadow-lg text-center custom-purple d-flex float-left col-md-12 align-items-center ">
   <div class="container align-items-center d-flex">
     <div class="col-md-12 text-light mb-0">
       <span class="footer-info" >© Copyright 2020 </span>

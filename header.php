@@ -1,62 +1,30 @@
-<?php require_once('layout/head.php'); ?>
+<?php
+define( 'ROOT_DIR', dirname(__FILE__));
+require_once(ROOT_DIR.'/layout/head.php');
+?>
 <body>
-    <!--<div class="d-flex justify-content-center align-items-center text-center w-100 h-100">
-      <div class="content">
-        <h1>Araç kiralamak için bize form gönderin.</h1>
-        <form>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-          </div>
-          <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Check me out</label>
-          </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-      </div>
-
-    </div>-->
-    <div id="carouselSlider" class="carousel slide" data-ride="carousel">
-      <ol class="carousel-indicators">
-        <li data-target="#carouselSlider" data-slide-to="0" class="active"></li>
-
-      </ol>
-      <div class="carousel-inner">
-        <div class="carousel-item active h-100">
-          <img class="d-block w-100" src="assets/img/foto1.jpg" alt="First slide">
-
-          <div class="carousel-caption d-none d-md-block">
-            <h5>...</h5>
-            <p>...</p>
-          </div>
-        </div>
-        <div class="carousel-item h-100">
-          <img class="d-block w-100" src="assets/img/foto2.jpg" alt="First slide">
-          <div class="carousel-caption d-none d-md-block">
-            <h5>...</h5>
-            <p>...</p>
-          </div>
-        </div>
-        <div class="carousel-item h-100">
-          <img class="d-block w-100" src="assets/img/foto3.jpeg" alt="First slide">
-          <div class="carousel-caption d-none d-md-block">
-            <h5>...</h5>
-            <p>...</p>
-          </div>
-        </div>
-      </div>
-      <a class="carousel-control-prev" href="#carouselSlider" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#carouselSlider" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
+  <style media="screen">
+    html,body,.carousel-inner{height:100%!important;}
+    .nav-link{color:gainsboro!important}
+  </style>
+  <nav class="navbar navbar-expand-lg navbar-light bg-dark shadow-lg position-fixed w-100 opacity-0 z-index-999 p-3 justify-content-center">
+    <a class="ml-2 h1 text-light mr-5 nav-link" href="" style="color:white!important">OTO ADI</a>
+    <button class="navbar-toggler border" type="button" data-toggle="collapse" data-target="#headerNavbar" aria-controls="headerNavbar" aria-expanded="false" aria-label="Toggle navigation">
+     <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse text-center justify-content-center h6" id="headerNavbar" style="flex-grow: 0;">
+      <ul class="navbar-nav">
+        <li class="nav-item  active" >
+          <a class="text-light nav-link" href="arac-kirala">ARAÇ KİRALAMA</a>
+        </li>
+        <span class="ml-5 border-left mr-5" ></span>
+        <li class="nav-item  active" >
+          <a class="text-light nav-link" href="about">HAKKIMIZDA</a>
+        </li>
+        <span class="ml-5 border-left mr-5" ></span>
+        <li class="nav-item ">
+          <a class="text-light nav-link" href="contact">İLETİŞİM</a>
+        </li>
+      </ul>
     </div>
+  </nav>

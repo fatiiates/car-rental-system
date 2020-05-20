@@ -1,6 +1,8 @@
 <?php
 define( 'ROOT_DIR', dirname(__FILE__));
 require_once(ROOT_DIR.'/../layout/head.php');
+require_once(ROOT_DIR.'/../api/connect/index.php');
+
 ?>
 <body class="bg-light">
     <header id="panel-header" class="justify-content-center custom-purple col-md-12 p-4 d-flex shadow-lg z-index-999 text-center">
