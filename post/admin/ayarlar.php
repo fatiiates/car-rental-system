@@ -80,7 +80,11 @@ if ($_POST) {
     else
       header('Location:'.$_SERVER['HTTP_REFERER'].'?process=error&message=Ayar seceneğini silme başarısız oldu.&alertClass=danger');
 
-  }
-}
+  }else 
+    header('Location:'.$_SERVER['HTTP_REFERER'].'?process=error&message=API gönderilen post verisinde bir submit bulamadı.&alertClass=danger');
+
+}else
+  header('Location:'.$_SERVER['HTTP_REFERER'].'?process=error&message=API bir post verisi bulamadı.&alertClass=danger');
+
 
  ?>

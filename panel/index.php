@@ -7,7 +7,6 @@ $query = "SELECT * FROM site_ayar";
 $result = $conn->prepare($query);
 $result->execute();
 $result->bind_result($id, $ayar_secenek, $ayar_deger);
-    /* fetch values */
 
 ?>
   <div class="admin-panel bg-light float-left h-100 p-5" >

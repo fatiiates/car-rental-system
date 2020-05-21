@@ -17,6 +17,14 @@ $result->bind_result($id, $arac_marka, $arac_model, $arac_yil, $arac_kira_ucret)
           <p class=" font-weight-light font-italic pt-3">Bu sekmede araç seçeneklerinizi düzenleyebilir, yeni seçenek ekleyebilir, mevcut seçeneği güncelleyebilirsiniz.</p>
       </div>
       <div class="col-md-12 mt-5">
+        <?php if (!empty($_GET['message'])): ?>
+          <div class="alert alert-<?php echo $_GET['alertClass']  ?> alert-dismissible fade show" role="alert">
+            <?php echo $_GET['message']  ?>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        <?php endif; ?>
         <div class="card border-dark mb-3 ">
           <div class="card-header bg-dark text-light">Araçlar</div>
             <div class="card-body text-dark">
@@ -39,7 +47,7 @@ $result->bind_result($id, $arac_marka, $arac_model, $arac_yil, $arac_kira_ucret)
                     while ($result->fetch()) { ?>
                       <tr>
                         <td>
-                          <a class="btn btn-primary" href="/panel/araclar/arac-secenek-guncelle.php?id=<?php echo $id ?>">Güncelle</a>
+                          <a class="btn btn-primary" href="panel/araclar/arac-secenek-guncelle.php?id=<?php echo $id ?>">Güncelle</a>
                         </td>
                         <td>
                           <form action="api/admin/araclar.php" method="post">

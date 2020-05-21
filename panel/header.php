@@ -1,7 +1,7 @@
 <?php
 define( 'ROOT_DIR', dirname(__FILE__));
 require_once(ROOT_DIR.'/../layout/head.php');
-require_once(ROOT_DIR.'/../api/connect/index.php');
+require_once(ROOT_DIR.'/../post/connect/index.php');
 
 ?>
 <body class="bg-light">

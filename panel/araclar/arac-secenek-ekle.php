@@ -11,13 +11,21 @@ require_once('../sidebar.php');
           <p class=" font-weight-light font-italic pt-3">Bu sekmede yeni araç seçenekleri ekleyebilirsiniz.</p>
       </div>
       <div class="col-md-6 mt-5">
+        <?php if (!empty($_GET['message'])): ?>
+          <div class="alert alert-<?php echo $_GET['alertClass']  ?> alert-dismissible fade show" role="alert">
+            <?php echo $_GET['message']  ?>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        <?php endif; ?>
         <div class="card border-info mb-3 ">
           <div class="card-header bg-info text-light">Araç Seçenek Ekleme</div>
             <div class="card-body text-info">
               <form class="" action="api/admin/araclar.php" method="post">
                 <div class="form-group col-md-8">
-                  <label for="arac_plaka">Araç Marka</label>
-                  <input type="text" class="form-control" name="arac_plaka" id="arac_plaka" placeholder="Arac Marka">
+                  <label for="arac_marka">Araç Marka</label>
+                  <input type="text" class="form-control" name="arac_marka" id="arac_marka" placeholder="Arac Marka">
                 </div>
                 <div class="form-group col-md-8">
                   <label for="arac_model">Araç Model</label>

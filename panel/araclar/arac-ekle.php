@@ -20,6 +20,14 @@ $result->bind_result($id, $arac_marka, $arac_model, $arac_yil, $arac_kira_ucret)
           <p class=" font-weight-light font-italic pt-3">Bu sekmede sisteme yeni araçlar dahil edebilirsiniz.</p>
       </div>
       <div class="col-md-6 mt-5">
+        <?php if (!empty($_GET['message'])): ?>
+          <div class="alert alert-<?php echo $_GET['alertClass']  ?> alert-dismissible fade show" role="alert">
+            <?php echo $_GET['message']  ?>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        <?php endif; ?>
         <div class="card border-primary mb-3 ">
           <div class="card-header bg-primary text-light">Araç Ekleme</div>
             <div class="card-body text-primary">
