@@ -2,7 +2,7 @@
 require_once('../header.php');
 require_once('../sidebar.php');
 
-$id=1/*$_SESSION['usr-admin']*/;
+$id=$_SESSION['usr-admin'];
 
 $query = "SELECT kullanici_ad,
                  kullanici_soyad,

@@ -6,9 +6,9 @@ function isLogin(){
     exit;
   }
 }
-function headerLoginControl(){
+function headerLoginControl($param){
   if(empty($_SESSION['usr-admin'])){
-    header("Location:".ROOT_OTO."/panel/login.php");
+    header("Location:".$param."/panel/login.php");
     exit;
   }
 }

@@ -43,7 +43,7 @@ $result->fetch();
                   <textarea class="form-control" name="ayar_deger" id="ayar_deger" placeholder="Ayar Değeri" rows="8" cols="80"><?php echo $ayar_deger ?></textarea>
                 </div>
                 <div class="form-group col-md-8">
-                  <button class="btn btn-outline-secondary" type="submit" name="guncelle_ayar_secenek" value="<?php echo $id ?>">Ekle</button>
+                  <button class="btn btn-outline-secondary" type="submit" name="guncelle_ayar_secenek" value="<?php echo $id ?>">Güncelle</button>
                 </div>
               </form>
             </div>

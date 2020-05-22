@@ -6,7 +6,7 @@ require_once(ROOT_DIR.'/../layout/head.php');
 require_once(ROOT_DIR.'/../post/connect/index.php');
 require_once(ROOT_DIR.'/../post/functions.php');
 
-headerLoginControl();
+headerLoginControl(ROOT_OTO);
 
 $ayar_query = "SELECT ayar_deger FROM site_ayar WHERE ayar_tip = 'ISLETME_AD'";
 $ayar_result = $conn->prepare($ayar_query);
