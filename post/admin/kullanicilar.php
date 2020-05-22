@@ -7,11 +7,11 @@ if ($_POST) {
 
   if (!empty($_POST['guncelle_kullanici_sifre'])) {
 
-    //  KULLANICI ŞİFRE DEĞİŞTİRME
+    //  KULLANICI ŞİFRE GÜNCELLEME
 
     isLogin();
 
-    $id = mysqli_real_escape_string($conn, 1/*$_SESSION['usr-admin']*/);
+    $id = mysqli_real_escape_string($conn, $_SESSION['usr-admin']);
     $query = "SELECT kullanici_sifre FROM kullanici WHERE kullanici_id = ?";
     $result = $conn->prepare($query);
     $result->bind_param("i", $id);
@@ -56,7 +56,8 @@ if ($_POST) {
     $result->execute();
     // çıkış atılacak
     if($result)
-      header('Location:'.$_SERVER['HTTP_REFERER'].'&process=success&message=Kullanıcı düzenlemesi başarılıydı.&alertClass=success');
+      require_once('../logout.php');
+      //header('Location:'.$_SERVER['HTTP_REFERER'].'&process=success&message=Kullanıcı düzenlemesi başarılıydı.&alertClass=success');
     else
       header('Location:'.$_SERVER['HTTP_REFERER'].'&process=error&message=Kullanıcı düzenlemesi başarısız oldu.&alertClass=danger');
 

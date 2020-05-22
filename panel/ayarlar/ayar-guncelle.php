@@ -33,7 +33,7 @@ $result->fetch();
         <div class="card border-secondary mb-3 ">
           <div class="card-header bg-secondary text-light">Ayar Seçenek Güncelleme</div>
             <div class="card-body text-secondary">
-              <form class="" action="api/admin/ayarlar.php" method="post">
+              <form class="" action="post/admin/ayarlar.php" method="post">
                 <div class="form-group col-md-8">
                   <label for="ayar_secenek">Ayar Seçenek</label>
                   <input type="text" class="form-control" name="ayar_secenek" id="ayar_secenek" value="<?php echo $ayar_secenek ?>" placeholder="Ayar Seçeneği">

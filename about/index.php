@@ -20,27 +20,37 @@ require_once('../header.php');
     <ol class="carousel-indicators">
       <li data-target="#carouselSlider" data-slide-to="0" class="active"></li>
       <li data-target="#carouselSlider" data-slide-to="1" ></li>
+      <li data-target="#carouselSlider" data-slide-to="2" ></li>
     </ol>
     <div class="carousel-inner">
-      <div class="carousel-item h-100 active">
-        <div class="d-flex justify-content-center align-items-center h-100">
-          <div class="content text-dark col-md-8">
-            <h3>HAKKIMIZDA</h3>
-            <br>
-            <i>"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum"</i>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item h-100">
-        <div class="d-flex justify-content-center align-items-center h-100">
-          <div class="content text-dark col-md-8">
-            <h3>misyonke</h3>
-            <br>
-            <i>"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum"</i>
-          </div>
-        </div>
-      </div>
+      <?php
+      $keys = ['HAKKIMIZDA' => 'HAKKIMIZDA',
+               'MISYON' => 'MİSYON',
+               'VIZYON' => 'VİZYON'];
 
+      foreach ($keys as $key => $value) {
+
+        $conn=mysqli_connect($serverName,$userID,$userPass,$database);
+
+        $query = "SELECT ayar_deger FROM site_ayar WHERE ayar_tip = ?";
+        $result = $conn->prepare($query);
+        $result->bind_param('s', $key);
+        $result->execute();
+        $result->bind_result($ayar_deger);
+        $result->fetch();
+        ?>
+        <div class="carousel-item <?php echo $key == "HAKKIMIZDA" ? 'active':'' ?> h-100">
+          <div class="d-flex justify-content-center align-items-center h-100">
+            <div class="text-dark col-md-8">
+              <h3><?php echo $value ?></h3>
+              <br>
+              <i><?php echo $ayar_deger ?></i>
+            </div>
+          </div>
+        </div>
+        <?php
+        mysqli_close($conn);
+      } ?>
     </div>
     <a class="carousel-control-prev" href="#carouselSlider" role="button" data-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>

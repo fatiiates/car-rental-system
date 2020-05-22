@@ -1,1 +1,6 @@
-error sayfası olacak
+<?php
+
+header("Location:../");
+exit;
+
+ ?>

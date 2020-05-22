@@ -22,7 +22,7 @@ require_once('../sidebar.php');
         <div class="card border-info mb-3 ">
           <div class="card-header bg-info text-light">Araç Seçenek Ekleme</div>
             <div class="card-body text-info">
-              <form class="" action="api/admin/araclar.php" method="post">
+              <form class="" action="post/admin/araclar.php" method="post">
                 <div class="form-group col-md-8">
                   <label for="arac_marka">Araç Marka</label>
                   <input type="text" class="form-control" name="arac_marka" id="arac_marka" placeholder="Arac Marka">

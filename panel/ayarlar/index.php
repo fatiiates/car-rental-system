@@ -22,7 +22,7 @@ require_once('../sidebar.php');
         <div class="card border-secondary mb-3 ">
           <div class="card-header bg-secondary text-light">Ayar Seçenek Ekleme</div>
             <div class="card-body text-secondary">
-              <form id="ekleAyarSecenek" action="api/admin/ayarlar.php" method="POST">
+              <form id="ekleAyarSecenek" action="post/admin/ayarlar.php" method="POST">
                 <div class="form-group col-md-8">
                   <label for="ayar_secenek">Ayar Seçenek</label>
                   <input type="text" class="form-control" name="ayar_secenek" id="ayar_secenek" placeholder="Ayar Seçeneği">

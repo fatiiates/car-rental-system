@@ -44,7 +44,7 @@ $result->bind_result($id, $arac_marka, $arac_model, $arac_yil, $arac_kira_ucret)
         <div class="card border-danger mb-3 ">
           <div class="card-header bg-danger text-light">Araç Güncelleme</div>
             <div class="card-body text-danger">
-              <form class="" action="api/admin/araclar.php" method="post">
+              <form class="" action="post/admin/araclar.php" method="post">
                 <div class="form-group col-md-8">
                   <label for="arac_plaka">Araç Marka</label>
                   <input type="text" class="form-control" name="arac_plaka" id="arac_plaka" value="<?php echo $arac_plaka ?>"  placeholder="Arac Marka">

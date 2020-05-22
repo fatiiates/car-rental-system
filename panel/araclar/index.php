@@ -60,7 +60,7 @@ $result->bind_result($id, $arac_plaka,$arac_marka, $arac_model, $arac_yil, $arac
                           <a class="btn btn-primary" href="panel/araclar/arac-guncelle.php?id=<?php echo $id ?>">Güncelle</a>
                         </td>
                         <td>
-                          <form action="api/admin/araclar.php" method="post">
+                          <form action="post/admin/araclar.php" method="post">
                             <button class="btn btn-danger" type="submit" value="<?php echo $id ?>" name="sil_arac">Sil</button>
                           </form>
                         </td>

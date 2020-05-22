@@ -5,7 +5,7 @@ require_once('../header.php');
   .nav-link-custom{color:black!important}
 </style>
 <div class="container">
-  <div class="w-100 min-vh-100 bg-light d-flex justify-content-center align-items-center text-center">
+  <div class="w-100 min-vh-100 shadow-lg bg-light d-flex justify-content-center align-items-center text-center">
     <div class="w-100 row justify-content-around" style="margin-top: 150px;">
       <div class="card col-md-5 p-0 m-2 float-left">
         <div class="card-header bg-primary text-light ">E-posta</div>

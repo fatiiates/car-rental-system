@@ -1,6 +1,14 @@
 <?php
 define( 'ROOT_DIR', dirname(__FILE__));
 require_once(ROOT_DIR.'/layout/head.php');
+require_once(ROOT_DIR.'/post/connect/usr-connect.php');
+
+$ayar_query = "SELECT ayar_deger FROM site_ayar WHERE ayar_tip = 'ISLETME_AD'";
+$ayar_result = $conn->prepare($ayar_query);
+$ayar_result->execute();
+$ayar_result->bind_result($ISLETME_AD);
+$ayar_result->fetch();
+
 ?>
 <body>
   <style media="screen">
@@ -8,11 +16,11 @@ require_once(ROOT_DIR.'/layout/head.php');
     .nav-link{color:gainsboro!important}
   </style>
   <nav class="navbar navbar-expand-lg navbar-light bg-dark shadow-lg position-fixed w-100 opacity-0 z-index-999 p-3 justify-content-center">
-    <a class="ml-2 h1 text-light mr-5 nav-link" href="" style="color:white!important">OTO ADI</a>
-    <button class="navbar-toggler border" type="button" data-toggle="collapse" data-target="#headerNavbar" aria-controls="headerNavbar" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="ml-2 h1 text-light mr-5 nav-link" href="" style="color:white!important"><?php echo $ISLETME_AD ?></a>
+    <button class="navbar-toggler border" type="button" data-toggle="collapse" data-target="#header_nav_bar" aria-controls="header_nav_bar" >
      <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse text-center justify-content-center h6" id="headerNavbar" style="flex-grow: 0;">
+    <div class="collapse navbar-collapse text-center justify-content-center h6" id="header_nav_bar" style="flex-grow: 0;">
       <ul class="navbar-nav">
         <li class="nav-item  active" >
           <a class="text-light nav-link" href="arac-kirala">ARAÇ KİRALAMA</a>

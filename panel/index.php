@@ -20,6 +20,14 @@ $result->bind_result($id, $ayar_secenek, $ayar_deger);
           <a href="panel/ayarlar" class="btn btn-success">Ayar Seçeneği Ekle</a>
       </div>
       <div class="col-md-12 mt-5">
+        <?php if (!empty($_GET['message'])): ?>
+          <div class="alert alert-<?php echo $_GET['alertClass']  ?> alert-dismissible fade show" role="alert">
+            <?php echo $_GET['message']  ?>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        <?php endif; ?>
         <div class="card border-dark mb-3 ">
           <div class="card-header bg-dark text-light">Ayarlar</div>
             <div class="card-body text-dark">
@@ -43,7 +51,7 @@ $result->bind_result($id, $ayar_secenek, $ayar_deger);
                           <a class="btn btn-primary" href="panel/ayarlar/ayar-guncelle.php?id=<?php echo $id ?>" >Güncelle</a>
                         </td>
                         <td>
-                          <form class="" action="api/admin/ayarlar.php" method="post">
+                          <form class="" action="post/admin/ayarlar.php" method="post">
                             <button class="btn btn-danger" type="submit" name="sil_ayar_secenek" value="<?php echo $id ?>">Sil</button>
                           </form>
                         </td>

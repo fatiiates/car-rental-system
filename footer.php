@@ -9,7 +9,7 @@
       <a href="/contact" class="h5 btn btn-outline-light p-2 pl-4 pr-4 mb-0">İletişim</a>
     </footer>
     <?php
-    require_once('../layout/foot.php');
+    require_once(ROOT_DIR.'/layout/foot.php');
      ?>
   </body>
 </html>

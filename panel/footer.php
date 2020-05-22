@@ -8,7 +8,7 @@
       </div>
     </footer>
     <?php
-    require_once('../layout/foot.php');
+    require_once(ROOT_DIR.'/../layout/foot.php');
      ?>
   </body>
 </html>

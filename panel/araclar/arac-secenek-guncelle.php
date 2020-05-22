@@ -35,7 +35,7 @@ $result->fetch();
         <div class="card border-secondary mb-3 ">
           <div class="card-header bg-secondary text-light">Araç Seçenek Güncelleme</div>
             <div class="card-body text-secondary">
-              <form class="" action="api/admin/araclar.php" method="post">
+              <form class="" action="post/admin/araclar.php" method="post">
                 <div class="form-group col-md-8">
                   <label for="arac_marka">Araç Marka</label>
                   <input type="text" class="form-control" name="arac_marka" value="<?php echo $arac_marka ?>" id="arac_marka" placeholder="Arac Marka">
