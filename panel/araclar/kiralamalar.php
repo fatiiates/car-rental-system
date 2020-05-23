@@ -3,17 +3,35 @@ require_once('../header.php');
 require_once('../sidebar.php');
 
 
-$query = "SELECT arac.arac_id,
+$query = 'SELECT arac_kiralama.kira_id,
                  arac.arac_plaka,
                  mevcut_arac_bilgi.arac_marka,
                  mevcut_arac_bilgi.arac_model,
                  mevcut_arac_bilgi.arac_yil,
-                 mevcut_arac_bilgi.arac_kira_ucret
-                 FROM arac,mevcut_arac_bilgi
-                 WHERE arac.arac_bilgi_id = mevcut_arac_bilgi.arac_bilgi_id";
+                 mevcut_arac_bilgi.arac_kira_ucret,
+                 musteri.musteri_ad,
+                 musteri.musteri_soyad,
+                 musteri.musteri_TC,
+                 arac_kiralama.kira_tarih,
+                 arac_kiralama.kira_bitis
+                 FROM arac,arac_kiralama,musteri,mevcut_arac_bilgi
+                 WHERE arac.arac_id = arac_kiralama.arac_id AND
+                 musteri.musteri_id = arac_kiralama.musteri_id AND
+                 mevcut_arac_bilgi.arac_bilgi_id = arac.arac_bilgi_id';
 $result = $conn->prepare($query);
 $result->execute();
-$result->bind_result($id, $arac_plaka,$arac_marka, $arac_model, $arac_yil, $arac_kira_ucret);
+$result->bind_result($kira_id,
+                     $arac_plaka,
+                     $arac_marka,
+                     $arac_model,
+                     $arac_yil,
+                     $arac_kira_ucret,
+                     $musteri_ad,
+                     $musteri_soyad,
+                     $musteri_TC,
+                     $kira_tarih,
+                     $kira_bitis
+                   );
 
 
 ?>
@@ -44,11 +62,11 @@ $result->bind_result($id, $arac_plaka,$arac_marka, $arac_model, $arac_yil, $arac
                       <th></th>
                       <th></th>
                       <th>#</th>
-                      <th>Plaka</th>
-                      <th>Marka</th>
-                      <th>Model</th>
-                      <th>Yıl</th>
-                      <th>Kira Ücreti(Günlük)</th>
+                      <th>Araç</th>
+                      <th>Müşteri</th>
+                      <th>Başlangıç Tarihi</th>
+                      <th>Bitiş Tarihi</th>
+
                     </tr>
                   </thead>
                   <tbody>
@@ -57,19 +75,26 @@ $result->bind_result($id, $arac_plaka,$arac_marka, $arac_model, $arac_yil, $arac
                     while ($result->fetch()) { ?>
                       <tr>
                         <td>
-                          <a class="btn btn-primary" href="panel/araclar/arac-guncelle.php?id=<?php echo $id ?>">Güncelle</a>
+                          <a class="btn btn-primary" href="panel/araclar/kiralanan-arac-guncelle.php?id=<?php echo $kira_id ?>">Güncelle</a>
                         </td>
                         <td>
                           <form action="post/admin/araclar.php" method="post">
-                            <button class="btn btn-danger" type="submit" value="<?php echo $id ?>" name="sil_arac">Sil</button>
+                            <button class="btn btn-danger" type="submit" value="<?php echo $kira_id ?>" name="sil_kiralama">Sil</button>
                           </form>
                         </td>
                         <td><?php echo $i ?></td>
-                        <td><?php echo $arac_plaka ?></td>
-                        <td><?php echo $arac_marka ?></td>
-                        <td><?php echo $arac_model ?></td>
-                        <td><?php echo $arac_yil ?></td>
-                        <td><?php echo $arac_kira_ucret ?></td>
+                        <td><?php echo $arac_plaka.", ".
+                                        $arac_marka.", ".
+                                        $arac_model.", ".
+                                        $arac_yil.", ".
+                                        $arac_kira_ucret ?>
+                        </td>
+                        <td><?php echo $musteri_ad.", ".
+                                       $musteri_soyad.", ".
+                                       $musteri_TC ?>
+                        </td>
+                        <td><?php echo $kira_tarih ?></td>
+                        <td><?php echo $kira_bitis ?></td>
                       </tr>
                     <?php $i++; } ?>
                   </tbody>

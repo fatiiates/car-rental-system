@@ -33,8 +33,7 @@ if ($_POST) {
     else
       header('Location:'.$_SERVER['HTTP_REFERER'].'?process=error&message=Araç eklemesi başarısız oldu.&alertClass=danger');
 
-  }
-  else if (!empty($_POST['guncelle_arac'])) {
+  }else if (!empty($_POST['guncelle_arac'])) {
 
     //  ARAÇ GÜNCELLEME
 
@@ -92,7 +91,7 @@ if ($_POST) {
       header('Location:'.$_SERVER['HTTP_REFERER'].'?process=error&message=Araç kira ücreti 7 karakterden fazla, 0\'dan küçük veya boş olamaz.&alertClass=danger');
       exit;
     }
-     
+
     $query = "INSERT INTO mevcut_arac_bilgi (arac_marka, arac_model, arac_yil, arac_kira_ucret) VALUES (?,?,?,?)";
     $result = $conn->prepare($query);
     $result->bind_param("ssid", $arac_marka, $arac_model, $arac_yil, $arac_kira_ucret);
@@ -144,6 +143,88 @@ if ($_POST) {
       else
         header('Location:'.$_SERVER['HTTP_REFERER'].'?process=error&message=Araç seçeneği güncellemesi başarısız oldu.&alertClass=danger');
 
+      }else if (!empty($_POST['ekle_kira'])) {
+
+        //  ARAÇ KİRALAMA
+
+        isLogin();
+
+        $arac_id = mysqli_real_escape_string($conn, $_POST['arac_secenek']);
+        $musteri_id = mysqli_real_escape_string($conn, $_POST['musteri_secenek']);
+
+        $kira_tarih = $_POST['kira_tarih'];
+        $kira_bitis = $_POST['kira_bitis'];
+
+        $query = "SELECT kira_bitis FROM arac_kiralama WHERE arac_id = ?";
+        $result = $conn->prepare($query);
+        $result->bind_param("i", $arac_id);
+        $result->execute();
+        $result->bind_result($bitis_tarih);
+        if ($kira_bitis < $kira_tarih) {
+          header('Location:'.$_SERVER['HTTP_REFERER'].'?process=error&message=Kira bitiş tarihi, başlangıç tarihinden büyük olamaz.&alertClass=danger');
+          exit;
+        }
+        while ($result->fetch()) {
+          if($bitis_tarih >= $kira_tarih){
+            header('Location:'.$_SERVER['HTTP_REFERER'].'?process=error&message=Araç seçili tarihlerde zaten kiralanmış.&alertClass=danger');
+            exit;
+          }
+        }
+
+        mysqli_close($conn);
+        $conn=mysqli_connect($serverName,$userID,$userPass,$database);
+
+        $query = "INSERT INTO arac_kiralama (arac_id, musteri_id, kira_tarih, kira_bitis) VALUES (?, ?, ?, ?)";
+        $result = $conn->prepare($query);
+        $result->bind_param("iiss", $arac_id, $musteri_id, $kira_tarih, $kira_bitis);
+        $result->execute();
+
+        if($result)
+          header('Location:'.$_SERVER['HTTP_REFERER'].'?process=success&message=Araç kiralaması tamamlandı.&alertClass=success');
+        else
+          header('Location:'.$_SERVER['HTTP_REFERER'].'?process=error&message=Araç kiralaması başarısız oldu.&alertClass=danger');
+
+      }else if (!empty($_POST['guncelle_kira'])) {
+
+        //  ARAÇ KİRA GÜNCELLEME
+
+        isLogin();
+
+        $arac_id = mysqli_real_escape_string($conn, $_POST['arac_secenek']);
+        $musteri_id = mysqli_real_escape_string($conn, $_POST['musteri_secenek']);
+
+        $kira_tarih = $_POST['kira_tarih'];
+        $kira_bitis = $_POST['kira_bitis'];
+
+        $query = "SELECT kira_bitis FROM arac_kiralama WHERE arac_id = ?";
+        $result = $conn->prepare($query);
+        $result->bind_param("i", $arac_id);
+        $result->execute();
+        $result->bind_result($bitis_tarih);
+        if ($kira_bitis < $kira_tarih) {
+          header('Location:'.$_SERVER['HTTP_REFERER'].'?process=error&message=Kira bitiş tarihi, başlangıç tarihinden büyük olamaz.&alertClass=danger');
+          exit;
+        }
+        while ($result->fetch()) {
+          if($bitis_tarih >= $kira_tarih){
+            header('Location:'.$_SERVER['HTTP_REFERER'].'?process=error&message=Araç seçili tarihlerde zaten kiralanmış.&alertClass=danger');
+            exit;
+          }
+        }
+
+        mysqli_close($conn);
+        $conn=mysqli_connect($serverName,$userID,$userPass,$database);
+
+        $query = "UPDATE arac_kiralama SET arac_id = ?, musteri_id = ?, kira_tarih = ?, kira_bitis = ? ";
+        $result = $conn->prepare($query);
+        $result->bind_param("iiss", $arac_id, $musteri_id, $kira_tarih, $kira_bitis);
+        $result->execute();
+
+        if($result)
+          header('Location:'.$_SERVER['HTTP_REFERER'].'?process=success&message=Kira güncellemesi tamamlandı.&alertClass=success');
+        else
+          header('Location:'.$_SERVER['HTTP_REFERER'].'?process=error&message=Kira güncellemesi başarısız oldu.&alertClass=danger');
+
       }else if (!empty($_POST['sil_arac'])) {
 
         //  ARAÇ SİLME
@@ -161,6 +242,25 @@ if ($_POST) {
           header('Location:'.$_SERVER['HTTP_REFERER'].'?process=success&message=Araç silme başarılıydı.&alertClass=success');
         else
           header('Location:'.$_SERVER['HTTP_REFERER'].'?process=error&message=Araç silme başarısız oldu.&alertClass=danger');
+
+
+      }else if (!empty($_POST['sil_kiralama'])) {
+
+        //  ARAÇ KİRA SİLME
+
+        isLogin();
+
+        $id=mysqli_real_escape_string($conn, $_POST['sil_kiralama']);
+
+        $query = "DELETE FROM arac_kiralama WHERE kira_id = ? ";
+        $result = $conn->prepare($query);
+        $result->bind_param("i", $id);
+        $result->execute();
+
+        if($result)
+          header('Location:'.$_SERVER['HTTP_REFERER'].'?process=success&message=Kiralama silme başarılıydı.&alertClass=success');
+        else
+          header('Location:'.$_SERVER['HTTP_REFERER'].'?process=error&message=Kiralama silme başarısız oldu.&alertClass=danger');
 
 
       }else if (!empty($_POST['sil_arac_secenek'])) {

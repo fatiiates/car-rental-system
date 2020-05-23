@@ -38,7 +38,7 @@ $result->bind_result($id, $arac_marka, $arac_model, $arac_yil, $arac_kira_ucret)
                       <th>Marka</th>
                       <th>Model</th>
                       <th>Yıl</th>
-                      <th>Kira Ücreti(saatlik)</th>
+                      <th>Kira Ücreti(Günlük)</th>
                     </tr>
                   </thead>
                   <tbody>

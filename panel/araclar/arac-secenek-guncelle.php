@@ -3,7 +3,7 @@ require_once('../header.php');
 require_once('../sidebar.php');
 
 if(empty($_GET["id"]))
-  header("Location:panel/araclar");
+  header("Location:index.php");
 
 $id=mysqli_real_escape_string($conn, $_GET["id"]);
 

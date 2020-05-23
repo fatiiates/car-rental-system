@@ -1,6 +1,6 @@
 <?php
 define( 'ROOT_DIR', dirname(__FILE__));
-define( 'ROOT_OTO', $_SERVER['HTTP_HOST'] == "192.168.2.3" ? '/oto-kiralama':'/');
+define( 'ROOT_OTO', $_SERVER['HTTP_HOST'] == "sitead" ? '/':'/oto-kiralama');
 
 require_once(ROOT_DIR.'/../layout/head.php');
 require_once(ROOT_DIR.'/../post/connect/index.php');
