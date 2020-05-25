@@ -1,13 +1,14 @@
 <?php
-define( 'ROOT_DIR', dirname(__FILE__));
-require_once(ROOT_DIR.'/layout/head.php');
-require_once(ROOT_DIR.'/post/connect/usr-connect.php');
+define( 'ROOT_DIR', $_SERVER['HTTP_HOST'] != "sitead" ? $_SERVER['DOCUMENT_ROOT'].'/oto-kiralama':$_SERVER['DOCUMENT_ROOT']);
 
-$ayar_query = "SELECT ayar_deger FROM site_ayar WHERE ayar_tip = 'ISLETME_AD'";
-$ayar_result = $conn->prepare($ayar_query);
-$ayar_result->execute();
-$ayar_result->bind_result($ISLETME_AD);
-$ayar_result->fetch();
+require_once(ROOT_DIR.'/layout/head.php');
+$conn = mysqli_connect($serverName,$userID,$userPass,$database);
+
+$query = "SELECT ayar_deger FROM site_ayar WHERE ayar_tip = 'ISLETME_AD'";
+$result = $conn->prepare($query);
+$result->execute();
+$result->bind_result($ISLETME_AD);
+$result->fetch();
 
 ?>
 <body>

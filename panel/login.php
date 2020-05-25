@@ -9,7 +9,7 @@ require_once('../layout/head.php');
   }
 </style>
 <div class="content m-0 p-0 bg-dark d-flex justify-content-center align-items-center text-center w-100 " style="height: 100%!important">
-  <form class="form-signin justify-content-center" action="post/login.php" method="post">
+  <form class="mw-25 justify-content-center w-100" action="post/login.php" method="post" style="max-width:350px">
     <?php if (!empty($_GET['message'])): ?>
       <div class="alert alert-<?php echo $_GET['alertClass']  ?> alert-dismissible fade show" role="alert">
         <?php echo $_GET['message']  ?>

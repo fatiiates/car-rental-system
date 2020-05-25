@@ -121,8 +121,11 @@ if ($_POST) {
     $result = $conn->prepare($query);
     $result->bind_param("i", $id);
     $result->execute();
-
+    print_r($result);
     if($result)
+    if ($result->errno == 1451)
+      header('Location:'.$_SERVER['HTTP_REFERER'].'?process=error&message=Öncelikle ilişkili tablolardaki verileri silmelsiniz(bkz:Araç kiralamaları).&alertClass=danger');
+    else
       header('Location:'.$_SERVER['HTTP_REFERER'].'?process=success&message=Müşteri silme başarılıydı.&alertClass=success');
     else
       header('Location:'.$_SERVER['HTTP_REFERER'].'?process=error&message=Müşteri silme başarısız oldu.&alertClass=danger');

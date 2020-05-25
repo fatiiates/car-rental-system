@@ -16,7 +16,7 @@ require_once('../header.php');
   }
 </style>
 <div class="w-100 h-100 bg-light d-flex justify-content-center align-items-center text-center">
-  <div id="carouselSlider" class="carousel slide d-block w-100" data-ride="carousel">
+  <div id="carouselSlider" class="carousel slide d-block w-100 h-100" data-ride="carousel">
     <ol class="carousel-indicators">
       <li data-target="#carouselSlider" data-slide-to="0" class="active"></li>
       <li data-target="#carouselSlider" data-slide-to="1" ></li>

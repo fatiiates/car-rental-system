@@ -1,12 +1,11 @@
 <?php
-define( 'ROOT_DIR', dirname(__FILE__));
-define( 'ROOT_OTO', $_SERVER['HTTP_HOST'] == "sitead" ? '/':'/oto-kiralama');
+define( 'ROOT_DIR', $_SERVER['HTTP_HOST'] != "sitead" ? $_SERVER['DOCUMENT_ROOT'].'/oto-kiralama':$_SERVER['DOCUMENT_ROOT']);
 
-require_once(ROOT_DIR.'/../layout/head.php');
-require_once(ROOT_DIR.'/../post/connect/index.php');
-require_once(ROOT_DIR.'/../post/functions.php');
+require_once(ROOT_DIR.'/layout/head.php');
+require_once(ROOT_DIR.'/post/connect/index.php');
+require_once(ROOT_DIR.'/post/functions.php');
 
-headerLoginControl(ROOT_OTO);
+headerLoginControl(ROOT_DIR.'/panel');
 
 $ayar_query = "SELECT ayar_deger FROM site_ayar WHERE ayar_tip = 'ISLETME_AD'";
 $ayar_result = $conn->prepare($ayar_query);
@@ -29,7 +28,7 @@ $mesaj_count = $mesaj_result->num_rows;
     <header id="panel-header" class="justify-content-center custom-purple col-md-12 p-4 d-flex shadow-lg z-index-999 text-center">
       <div class="col-md-10">
         <div class="col-md-6 float-left text-md-left">
-          <a class="text-light h4 width-fit-content nav-link" href="<?php echo ROOT_OTO ?>" style="color:white!important"><?php echo $ISLETME_AD ?> - fPanel Sistemi</a>
+          <a class="text-light h4 width-fit-content nav-link" href="" style="color:white!important"><?php echo $ISLETME_AD ?> - fPanel Sistemi</a>
         </div>
         <div class="col-md-6 float-right text-md-right">
           <span class="text-light h4 width-fit-content" href="#">

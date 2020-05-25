@@ -56,10 +56,9 @@ if ($_POST) {
     $result->execute();
     // çıkış atılacak
     if($result)
-      require_once('../logout.php');
-      //header('Location:'.$_SERVER['HTTP_REFERER'].'&process=success&message=Kullanıcı düzenlemesi başarılıydı.&alertClass=success');
+      header('Location:../logout.php');
     else
-      header('Location:'.$_SERVER['HTTP_REFERER'].'&process=error&message=Kullanıcı düzenlemesi başarısız oldu.&alertClass=danger');
+      header('Location:'.$_SERVER['HTTP_REFERER'].'?process=error&message=Şifre güncellemesi başarısız oldu.&alertClass=danger');
 
 
   }
@@ -111,9 +110,9 @@ if ($_POST) {
     $result->execute();
 
     if($result)
-      header('Location:'.$_SERVER['HTTP_REFERER'].'&process=success&message=Kullanıcı düzenlemesi başarılıydı.&alertClass=success');
+      header('Location:'.$_SERVER['HTTP_REFERER'].'?process=success&message=Kullanıcı düzenlemesi başarılıydı.&alertClass=success');
     else
-      header('Location:'.$_SERVER['HTTP_REFERER'].'&process=error&message=Kullanıcı düzenlemesi başarısız oldu.&alertClass=danger');
+      header('Location:'.$_SERVER['HTTP_REFERER'].'?process=error&message=Kullanıcı düzenlemesi başarısız oldu.&alertClass=danger');
 
   }else
     header('Location:'.$_SERVER['HTTP_REFERER'].'?process=error&message=API gönderilen post verisinde bir submit bulamadı.&alertClass=danger');

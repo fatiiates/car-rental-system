@@ -190,15 +190,16 @@ if ($_POST) {
 
         isLogin();
 
+        $kira_id = mysqli_real_escape_string($conn, $_POST['guncelle_kira']);
         $arac_id = mysqli_real_escape_string($conn, $_POST['arac_secenek']);
         $musteri_id = mysqli_real_escape_string($conn, $_POST['musteri_secenek']);
 
         $kira_tarih = $_POST['kira_tarih'];
         $kira_bitis = $_POST['kira_bitis'];
 
-        $query = "SELECT kira_bitis FROM arac_kiralama WHERE arac_id = ?";
+        $query = "SELECT kira_bitis FROM arac_kiralama WHERE arac_id = ? AND kira_id != ?";
         $result = $conn->prepare($query);
-        $result->bind_param("i", $arac_id);
+        $result->bind_param("i", $arac_id, $kira_id);
         $result->execute();
         $result->bind_result($bitis_tarih);
         if ($kira_bitis < $kira_tarih) {
@@ -215,9 +216,9 @@ if ($_POST) {
         mysqli_close($conn);
         $conn=mysqli_connect($serverName,$userID,$userPass,$database);
 
-        $query = "UPDATE arac_kiralama SET arac_id = ?, musteri_id = ?, kira_tarih = ?, kira_bitis = ? ";
+        $query = "UPDATE arac_kiralama SET arac_id = ?, musteri_id = ?, kira_tarih = ?, kira_bitis = ? WHERE kira_id = ?";
         $result = $conn->prepare($query);
-        $result->bind_param("iiss", $arac_id, $musteri_id, $kira_tarih, $kira_bitis);
+        $result->bind_param("iissi", $arac_id, $musteri_id, $kira_tarih, $kira_bitis, $kira_id);
         $result->execute();
 
         if($result)
@@ -275,8 +276,13 @@ if ($_POST) {
         $result->bind_param("i", $id);
         $result->execute();
 
-        if($result)
-          header('Location:'.$_SERVER['HTTP_REFERER'].'?process=success&message=Araç seçeneği silme başarılıydı.&alertClass=success');
+
+        if($result){
+          if ($result->errno == 1451)
+            header('Location:'.$_SERVER['HTTP_REFERER'].'?process=error&message=Öncelikle ilişkili tablolardaki verileri silmelsiniz(bkz:Araclar).&alertClass=danger');
+          else
+            header('Location:'.$_SERVER['HTTP_REFERER'].'?process=success&message=Araç seçeneği silme başarılıydı.&alertClass=success');
+        }
         else
           header('Location:'.$_SERVER['HTTP_REFERER'].'?process=error&message=Araç seçeneği silme başarısız oldu.&alertClass=danger');
 
