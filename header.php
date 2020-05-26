@@ -1,5 +1,5 @@
 <?php
-define( 'ROOT_DIR', $_SERVER['HTTP_HOST'] != "sitead" ? $_SERVER['DOCUMENT_ROOT'].'/oto-kiralama':$_SERVER['DOCUMENT_ROOT']);
+define( 'ROOT_DIR', $_SERVER['HTTP_HOST'] != "demo-arac-kiralama.ueuo.com" ? $_SERVER['DOCUMENT_ROOT'].'/oto-kiralama':$_SERVER['DOCUMENT_ROOT']);
 
 require_once(ROOT_DIR.'/layout/head.php');
 $conn = mysqli_connect($serverName,$userID,$userPass,$database);
@@ -16,7 +16,7 @@ $result->fetch();
     html,body,.carousel-inner{height:100%!important;}
     .nav-link{color:gainsboro!important}
   </style>
-  <nav class="navbar navbar-expand-lg navbar-light bg-dark shadow-lg position-fixed w-100 opacity-0 z-index-999 p-3 justify-content-center">
+  <nav class="navbar navbar-expand-lg navbar-dark shadow-lg position-fixed w-100 opacity-0 z-index-999 p-3 justify-content-center" style="background: rgba(0,0,0,.5)!important">
     <a class="ml-2 h1 text-light mr-5 nav-link" href="" style="color:white!important"><?php echo $ISLETME_AD ?></a>
     <button class="navbar-toggler border" type="button" data-toggle="collapse" data-target="#header_nav_bar" aria-controls="header_nav_bar" >
      <span class="navbar-toggler-icon"></span>

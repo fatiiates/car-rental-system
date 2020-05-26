@@ -44,7 +44,7 @@ require_once('../header.php');
             <div class="text-dark col-md-8">
               <h3><?php echo $value ?></h3>
               <br>
-              <i><?php echo $ayar_deger ?></i>
+              <i><?php echo empty($ayar_deger) ? $value.' bilgisi bulunamadı' : $ayar_deger ?></i>
             </div>
           </div>
         </div>

@@ -3,7 +3,6 @@ define( 'ROOT_DIR', $_SERVER['HTTP_HOST'] != "demo-arac-kiralama.ueuo.com" ? $_S
 
 require_once(ROOT_DIR.'/post/connect/usr-connect.php');
 
-
 $keys= ['DESCRIPTION' => 'description', 'KEYWORDS' => 'keywords', 'AUTHOR'  => 'author'];
 
  ?>
@@ -30,9 +29,8 @@ $keys= ['DESCRIPTION' => 'description', 'KEYWORDS' => 'keywords', 'AUTHOR'  => '
     <?php } ?>
 
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <base href="http://192.168.2.4/oto-kiralama/" >
+    <base href="http://<?php echo $_SERVER['HTTP_HOST'].($_SERVER['HTTP_HOST'] != "demo-arac-kiralama.ueuo.com" ? '/oto-kiralama/' :'/')?>"  >
     <title>Prusa Oto</title>
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/master5.css">
+    <link rel="stylesheet" href="assets/css/master.css">
   </head>

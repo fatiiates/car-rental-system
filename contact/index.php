@@ -1,9 +1,4 @@
-<?php
-require_once('../header.php');
-
-
-
-?>
+<?php require_once('../header.php'); ?>
 <style media="screen">
   .nav-link-custom{color:black!important}
 </style>
@@ -55,19 +50,6 @@ require_once('../header.php');
         <?php
         mysqli_close($conn);
       } ?>
-
-      <!--<div class="card col-md-5 p-0 m-2 float-left">
-        <div class="card-header bg-danger text-light">Telefon Numarası</div>
-        <div class="card-body">
-          <a href="tel:" class="nav-link nav-link-custom card-text text-dark">+90544435349</a>
-        </div>
-      </div>
-      <div class="card col-md-6 p-0 m-2 float-left">
-        <div class="card-header bg-info text-light">Adres</div>
-        <div class="card-body">
-          <a href="tel:" class="nav-link nav-link-custom card-text text-dark">gsdgdsgdsgs</a>
-        </div>
-      </div>-->
     </div>
   </div>
 </div>

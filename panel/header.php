@@ -1,11 +1,10 @@
 <?php
-define( 'ROOT_DIR', $_SERVER['HTTP_HOST'] != "sitead" ? $_SERVER['DOCUMENT_ROOT'].'/oto-kiralama':$_SERVER['DOCUMENT_ROOT']);
+define( 'ROOT_DIR', $_SERVER['HTTP_HOST'] != "demo-arac-kiralama.ueuo.com" ? $_SERVER['DOCUMENT_ROOT'].'/oto-kiralama':$_SERVER['DOCUMENT_ROOT']);
 
 require_once(ROOT_DIR.'/layout/head.php');
 require_once(ROOT_DIR.'/post/connect/index.php');
 require_once(ROOT_DIR.'/post/functions.php');
-
-headerLoginControl(ROOT_DIR.'/panel');
+headerLoginControl('http://'.$_SERVER['HTTP_HOST'].($_SERVER['HTTP_HOST'] != "demo-arac-kiralama.ueuo.com" ? '/oto-kiralama':''));
 
 $ayar_query = "SELECT ayar_deger FROM site_ayar WHERE ayar_tip = 'ISLETME_AD'";
 $ayar_result = $conn->prepare($ayar_query);
