@@ -15,7 +15,11 @@ Veri tabanı olarak MySQL sunucusu gerektirmektedir. Yukarıdaki linkten kurulum
 
  ## KURULUM
 
-Bilgisayarınızın ana dizininde bulunan AppServ klasörünün içerisindeki "www" klasörünün içerisine "car-rental-system" adında bir klasör oluşturun. Depoyu indirdikten sonra tüm .git, .gitignore ve .gitattributes dosyaları hariç tüm dosyaları "car-rental-system" klasörüne kopyalayın. Ardından "panel" dizinin içerisindeki vt.zip dosyasını başka bir dizine kopyalayın. Ardından arşivi çıkarın ve .sql dosyasını MySQL sunucunuz üzerinde restore edin. Restore etmek için şu adımları izleyebilirsiniz;
+1. Bilgisayarınızın ana dizininde bulunan AppServ klasörünün içerisindeki "www" klasörünün içerisine "car-rental-system" adında bir klasör oluşturun. 
+2. Depoyu indirdikten sonra tüm .git, .gitignore ve .gitattributes dosyaları hariç tüm dosyaları "car-rental-system" klasörüne kopyalayın. 
+3. Ardından "panel" dizinin içerisindeki vt.zip dosyasını başka bir dizine kopyalayın. 
+4. Daha sonra arşivi çıkarın ve .sql dosyasını MySQL sunucunuz üzerinde restore edin. 
+5. Restore etmek için şu adımları izleyebilirsiniz;
 > https://support.managed.com/kb/a2034/how-to-backup-and-or-restore-your-mysql-database-using-phpmyadmin.aspx  
 > https://help.fasthosts.co.uk/app/answers/detail/a_id/1404/~/back-up-and-restore-mysql-databases-using-mysql-workbench-5
 
