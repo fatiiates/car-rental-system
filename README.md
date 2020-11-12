@@ -23,4 +23,4 @@ Veri tabanı olarak MySQL sunucusu gerektirmektedir. Yukarıdaki linkten kurulum
 > https://support.managed.com/kb/a2034/how-to-backup-and-or-restore-your-mysql-database-using-phpmyadmin.aspx  
 > https://help.fasthosts.co.uk/app/answers/detail/a_id/1404/~/back-up-and-restore-mysql-databases-using-mysql-workbench-5
 
-Artık web sayfanız hazır. Tarayıcıya localhost yazarak listelenen dizinden "car-rental-system" linkine tıklayın ve karşınızda siteniz.
+Artık web sayfanız hazır. Tarayıcıya localhost yazarak listelenen dizinden "car-rental-system" linkine tıklayın ve siteniz karşınızda.
